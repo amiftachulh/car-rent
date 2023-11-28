@@ -31,14 +31,14 @@ async function main() {
       { name: 'Toyota Avanza', costPerDay: 500000, imageUrl: 'https://www.toyota.astra.co.id//sites/default/files/2023-09/2-avanza-gray-metallic.png' },
       { name: 'Honda Brio', costPerDay: 500000, imageUrl: 'https://asset.honda-indonesia.com/variants/images/VmfueMMOko09BwpogWPFmBUShLbLDzik4wPP6AFz.png' },
       { name: 'Nissan X-Trail', costPerDay: 700000, imageUrl: 'https://storage.googleapis.com/prod-nissan-indonesia/static-assets/XTRAIL-16-9.jpg' },
-      { name: 'Mazda CX-5', costPerDay: 750000, imageUrl: 'https://mazda.co.id/media/43xdogng/elite-banner.jpg' },
-      { name: 'Chevrolet Traverse', costPerDay: 800000, imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLTuZ7hcRhAC4YBnxqyye9SIOUxGS8JpdTh21ntwqM&s' },
-      { name: 'Ford Mustang', costPerDay: 1000000, imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZrNxb588l1osakL88C1hZXMB8M7DyNxUGxLTo84IS&s' },
-      { name: 'Mercedes-Benz C-Class', costPerDay: 1200000, imageUrl: 'https://momobil.id/news/wp-content/uploads/2022/09/Mercedes-benz-c63-s-1024x576.jpg' },
-      { name: 'BMW E46', costPerDay: 1500000, imageUrl: 'https://www.carmag.co.za/wp-content/uploads/2023/09/CC-2-1-800x480.webp' },
-      { name: 'Audi Q7', costPerDay: 1400000, imageUrl: 'https://hips.hearstapps.com/hmg-prod/images/2024-audi-q7-102-6495edad98657.jpg?crop=0.583xw:0.436xh;0.333xw,0.439xh&resize=1200:*' },
-      { name: 'Tesla Model S', costPerDay: 2000000, imageUrl: 'https://img5.icarcdn.com/97099/prev-desktop_tesla-model-x-suv-listrik-yang-memikat_cover_2015_tesla-model-x.jpg' }
-    ],
+      { name: 'Mazda CX-5', costPerDay: 750000, imageUrl: 'https://imgcdn.oto.com/large/gallery/exterior/23/1595/mazda-cx-5-front-angle-low-view-920341.jpg' },
+      { name: 'Chevrolet Traverse', costPerDay: 800000, imageUrl: 'https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2023/suvs/traverse/01-images/masthead/v3/2023-traverse-masthead-01.jpg?imwidth=1200' },
+      { name: 'Ford Mustang', costPerDay: 1000000, imageUrl: 'https://hips.hearstapps.com/hmg-prod/images/2022-ford-mustang-shelby-gt500-02-1636734552.jpg?crop=1.00xw:0.891xh;0,0.0759xh&resize=1200:*' },
+      { name: 'Mercedes-Benz C-Class', costPerDay: 1200000, imageUrl: 'https://hips.hearstapps.com/hmg-prod/images/2024-mercedes-amg-c63-s-e-performance-front-motion5-1663695513.jpg?crop=0.761xw:0.641xh;0.0896xw,0.246xh&resize=1200:*' },
+      { name: 'BMW E46', costPerDay: 1500000, imageUrl: 'https://www.topgear.com/sites/default/files/cars-car/carousel/2020/12/p90236604_highres_the-bmw-m3-csl-e46-0.jpg?w=892&h=502' },
+      { name: 'Audi Q7', costPerDay: 1400000, imageUrl: 'https://www.audi.co.id/content/dam/nemo/models/q7/q7/my-2022/NeMo-Derivate-Startpage/stage/1920x1080-Q7_2020_1986.jpg?imwidth=1440' },
+      { name: 'Tesla Model S', costPerDay: 2000000, imageUrl: 'https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-X.png' }
+    ]
   });
 
   console.log("Car model added");
