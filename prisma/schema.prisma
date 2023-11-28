@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int      @id @default(autoincrement())
+  username    String   @unique
+  password    String   @db.VarChar(255)
+  address     String   @db.VarChar(255)
+  phoneNumber String   @map("phone_number")
+  role        Role     @relation(fields: [roleId], references: [id])
+  roleId      Int      @map("role_id")
+  token       String?  @db.VarChar(255)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+model Role {
+  id    Int    @id
+  name  String @unique
+  users User[]
+
+  @@map("roles")
+}
+
+model Car {
+  id                 Int      @id @default(autoincrement())
+  carModel           CarModel @relation(fields: [carModelId], references: [id])
+  carModelId         Int      @map("car_model_id")
+  registrationNumber String   @map("registration_number")
+  rented             Boolean  @default(false)
+  createdAt          DateTime @default(now()) @map("created_at")
+  updatedAt          DateTime @updatedAt @map("updated_at")
+
+  @@map("cars")
+}
+
+model CarModel {
+  id         Int      @id @default(autoincrement())
+  name       String   @unique
+  costPerDay Int      @map("cost_per_day")
+  imageUrl   String
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+  cars       Car[]
+
+  @@map("car_models")
+}
