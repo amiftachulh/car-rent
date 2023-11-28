@@ -1,7 +1,13 @@
 import { fail, redirect } from "@sveltejs/kit";
-import type { Actions } from "./$types";
+import type { Actions, PageServerLoad } from "./$types";
 import { prisma } from "$lib/server/prisma";
 import bcrypt from "bcrypt";
+
+export const load: PageServerLoad = async ({ locals }) => {
+  if (locals.user) {
+    throw redirect(302, "/");
+  }
+};
 
 export const actions: Actions = {
   register: async ({ request }) => {

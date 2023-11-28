@@ -1,7 +1,13 @@
 import { fail, redirect } from '@sveltejs/kit';
-import type { Actions } from "./$types";
 import { prisma } from '$lib/server/prisma';
 import bcrypt from 'bcrypt';
+import type { Actions, PageServerLoad } from './$types';
+
+export const load: PageServerLoad = async ({ locals }) => {
+  if (locals.user) {
+    throw redirect(302, "/");
+  }
+};
 
 export const actions: Actions = {
   login: async ({ cookies, request }) => {
@@ -40,13 +46,14 @@ export const actions: Actions = {
     }
 
     cookies.set('session', authenticatedUser.token, {
-      path: '/',
+      path: "/",
       httpOnly: true,
-      sameSite: 'strict',
+      sameSite: "strict",
       secure: true,
       maxAge: 60 * 60 * 24 * 30,
     });
 
-    throw redirect(302, '/');
+    if (authenticatedUser.roleId === 1) throw redirect(302, "/");
+    throw redirect(302, "/dashboard");
   }
 };
