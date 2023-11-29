@@ -13,6 +13,7 @@ datasource db {
 model User {
   id           Int           @id @default(autoincrement())
   username     String        @unique
+  fullName     String        @map("full_name")
   password     String        @db.VarChar(255)
   address      String        @db.VarChar(255)
   phoneNumber  String        @map("phone_number")
@@ -36,7 +37,7 @@ model Role {
 
 model Car {
   id                 Int           @id @default(autoincrement())
-  carModel           CarModel      @relation(fields: [carModelId], references: [id])
+  carModel           CarModel      @relation(fields: [carModelId], references: [id], onDelete: Cascade)
   carModelId         Int           @map("car_model_id")
   registrationNumber String        @map("registration_number")
   rented             Boolean       @default(false)
@@ -61,15 +62,26 @@ model CarModel {
 
 model Reservation {
   id        Int      @id @default(autoincrement())
-  car       Car      @relation(fields: [carId], references: [id])
+  car       Car      @relation(fields: [carId], references: [id], onDelete: Cascade)
   carId     Int      @map("car_id")
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    Int      @map("user_id")
   startDate DateTime @map("start_date")
   endDate   DateTime @map("end_date")
   totalCost Int      @map("total_cost")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
+  return    Return?
+  returnId  Int?     @unique @map("return_id")
 
   @@map("reservations")
+}
+
+model Return {
+  id            Int          @id @default(autoincrement())
+  reservation   Reservation? @relation(fields: [reservationId], references: [id], onDelete: SetNull)
+  reservationId Int?         @unique @map("reservation_id")
+  createdAt     DateTime     @default(now()) @map("created_at")
+
+  @@map("returns")
 }

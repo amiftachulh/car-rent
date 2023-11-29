@@ -13,7 +13,7 @@
 <form class="flex flex-col gap-4 w-80 bg-white p-8 shadow-lg" action="?/login" method="POST" use:enhance>
   <h1 class="font-bold text-2xl text-center">Masuk</h1>
   <Input type="text" id="username" name="username" placeholder="Nama Pengguna" autocomplete="off" required />
-  <Input type="password" id="username" name="password" placeholder="Kata Sandi" required />
+  <Input type="password" id="password" name="password" placeholder="Kata Sandi" required />
   <Button class="font-bold" type="submit">Masuk</Button>
   <p class="text-sm text-center">Belum punya akun? <A href="/register">Daftar</A></p>
 </form>

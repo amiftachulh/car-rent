@@ -15,16 +15,19 @@
   <div class="flex md:order-2">
     {#if $page.data.user}
       <div id="user" class="flex justify-center items-center gap-4 cursor-pointer">
-        <span class="font-bold">{$page.data.user.username}</span>
+        <span class="font-bold">{$page.data.user.fullName}</span>
         <Avatar border />
       </div>
       <Dropdown triggeredBy="#user">
-        <DropdownItem href="/dashboard">Dashboard</DropdownItem>
-        <DropdownItem>Settings</DropdownItem>
-        <DropdownItem>Earnings</DropdownItem>
+        {#if $page.data.user.role === 1}
+          <DropdownItem href="/dashboard/admin">Dashboard</DropdownItem>
+        {:else}
+          <DropdownItem href="/dashboard">Dashboard</DropdownItem>
+          <DropdownItem href="/dashboard/reservation">Pesanan</DropdownItem>
+        {/if}
         <DropdownDivider />
         <form class="hidden" action="/logout" method="post" use:enhance></form>
-        <DropdownItem on:click={handleLogout}>Log out</DropdownItem>
+        <DropdownItem on:click={handleLogout}>Keluar</DropdownItem>
       </Dropdown>
     {/if}
   </div>

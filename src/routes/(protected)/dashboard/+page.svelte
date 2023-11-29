@@ -61,7 +61,7 @@
           <input type="text" class="hidden" name="carModelId" value={data.cars[selectedCarIndex].id} />
           <div>
             <Label for="total-days" class="mb-2">Hari</Label>
-            <select bind:value={selectedTotalDays} id="total-days" name="totalDays" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+            <select bind:value={selectedTotalDays} id="total-days" name="totalDays" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5" required>
               <option value={1} selected>1 hari</option>
               <option value={2}>2 hari</option>
               <option value={3}>3 hari</option>

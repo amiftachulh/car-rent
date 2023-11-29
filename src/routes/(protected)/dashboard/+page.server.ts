@@ -1,7 +1,6 @@
 import { prisma } from "$lib/server/prisma";
 import { fail, redirect } from "@sveltejs/kit";
 import type { Actions, PageServerLoad } from "./$types";
-import dayjs from "dayjs";
 
 export const load: PageServerLoad = async () => {
   const cars = await prisma.carModel.findMany({
@@ -35,8 +34,9 @@ export const actions: Actions = {
       return fail(400, { message: "Invalid request" });
     }
 
-    const parsedStartDate = dayjs(startDate)
-    const endDate = parsedStartDate.add(totalDays, 'day');
+    const parsedStartDate = new Date(startDate);
+    const endDate = new Date(startDate);
+    endDate.setDate(parsedStartDate.getDate() + totalDays);
 
     const car = await prisma.car.findFirst({
       where: { carModelId, rented: false },
@@ -63,7 +63,6 @@ export const actions: Actions = {
       })
     ])
 
-
-    throw redirect(302, "/");
+    throw redirect(302, "/dashboard/reservation");
   }
 };
