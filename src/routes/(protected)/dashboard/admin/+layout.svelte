@@ -36,11 +36,6 @@
               <EnvelopeSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
             </svelte:fragment>
           </SidebarItem>
-          <SidebarItem label="Pengembalian" href="/dashboard/admin/return-list">
-            <svelte:fragment slot="icon">
-              <PenSolid class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-            </svelte:fragment>
-          </SidebarItem>
         </SidebarGroup>
       </SidebarWrapper>
     </Sidebar>

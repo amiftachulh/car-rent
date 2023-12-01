@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Table, TableHead, TableHeadCell, TableBody, TableBodyRow, TableBodyCell, Button } from "flowbite-svelte";
+  import { Table, TableHead, TableHeadCell, TableBody, TableBodyRow, TableBodyCell, Button, ButtonGroup } from "flowbite-svelte";
   import type { PageData } from "./$types";
   import { enhance } from "$app/forms";
 
@@ -27,9 +27,11 @@
         <TableBodyCell>{user.address}</TableBodyCell>
         <TableBodyCell>{user.phoneNumber}</TableBodyCell>
         <TableBodyCell>
-          <Button href="users/edit?id={user.id}" color="blue">Edit</Button>
-          <form class="inline" action="?/delete&id={user.id}" method="post" use:enhance>
-            <Button type="submit">Hapus</Button>
+          <form action="?/delete&id={user.id}" method="post" use:enhance>
+            <ButtonGroup>
+              <Button type="button" href="users/edit?id={user.id}" color="blue">Edit</Button>
+              <Button type="submit" color="red">Hapus</Button>
+            </ButtonGroup>
           </form>
         </TableBodyCell>
       </TableBodyRow>

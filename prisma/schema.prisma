@@ -72,15 +72,14 @@ model Reservation {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   return    Return?
-  returnId  Int?     @unique @map("return_id")
 
   @@map("reservations")
 }
 
 model Return {
   id            Int          @id @default(autoincrement())
-  reservation   Reservation? @relation(fields: [reservationId], references: [id], onDelete: SetNull)
-  reservationId Int?         @unique @map("reservation_id")
+  reservation   Reservation? @relation(fields: [reservationId], references: [id])
+  reservationId Int          @unique @map("reservation_id")
   createdAt     DateTime     @default(now()) @map("created_at")
 
   @@map("returns")
