@@ -9,7 +9,11 @@ export const load: PageServerLoad = async () => {
       name: true,
       costPerDay: true,
       imageUrl: true,
-      _count: true,
+      cars: {
+        where: {
+          rented: false,
+        }
+      }
     },
   });
 
@@ -35,6 +39,13 @@ export const actions: Actions = {
     }
 
     const parsedStartDate = new Date(startDate);
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+
+    if ((parsedStartDate.getTime() - now.getTime()) < 24 * 60 * 60 * 1000) {
+      return fail(400, { message: "Tanggal mulai minimal 1 hari setelah hari ini" });
+    }
+
     const endDate = new Date(startDate);
     endDate.setDate(parsedStartDate.getDate() + totalDays);
 

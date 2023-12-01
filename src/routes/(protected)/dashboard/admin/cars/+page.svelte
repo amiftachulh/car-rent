@@ -5,6 +5,10 @@
   export let data: PageData;
 </script>
 
+<svelte:head>
+  <title>Daftar Mobil</title>
+</svelte:head>
+
 <h1 class="text-center font-bold text-2xl">Daftar Mobil</h1>
 <Table>
   <TableHead>

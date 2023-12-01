@@ -36,7 +36,13 @@ export const actions: Actions = {
       return fail(400, { message: "Tidak bisa dibatalkan jika jarak 1 hari" });
     }
 
-    await prisma.reservation.delete({ where: { id } });
+    await prisma.$transaction([
+      prisma.reservation.delete({ where: { id } }),
+      prisma.car.update({
+        where: { id: reservation.carId },
+        data: { rented: false }
+      })
+    ])
 
     return {
       success: true

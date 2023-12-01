@@ -6,6 +6,10 @@
   export let data: PageData;
 </script>
 
+<svelte:head>
+  <title>Daftar Pengguna</title>
+</svelte:head>
+
 <h1 class="text-center font-bold text-2xl">Daftar Pengguna</h1>
 <Table>
   <TableHead>

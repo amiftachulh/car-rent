@@ -1,7 +1,6 @@
 <script lang="ts">
   import { A, Button, Table, TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell } from "flowbite-svelte";
   import type { PageData } from "./$types";
-  import Footer from "$lib/components/Footer.svelte";
   import { enhance } from "$app/forms";
 
   export let data: PageData;

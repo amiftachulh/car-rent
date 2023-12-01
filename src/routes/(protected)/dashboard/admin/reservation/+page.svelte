@@ -6,6 +6,10 @@
   export let data: PageData;
 </script>
 
+<svelte:head>
+  <title>Daftar Pesanan</title>
+</svelte:head>
+
 <h1 class="text-center font-bold text-2xl">Daftar Pesanan</h1>
 <Tabs>
   <TabItem open title="Belum Selesai">
